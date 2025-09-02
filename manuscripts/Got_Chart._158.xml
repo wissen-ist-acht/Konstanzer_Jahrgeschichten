@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Konstanzer Jahrgeschichten</title>
+                <respStmt>
+                    <resp>Encoded by</resp>
+                    <name ref="https://orcid.org/0000-0003-2419-4252" type="ORCID">[Ina Serif]</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <p>Digital edition</p>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <p>Gotha, Forschungsbibliothek der Universität Erfurt, Cod. Chart. A 158</p>
+                    </msIdentifier>
+                    <physDesc>
+                        <p>Konstanzer Jahrgeschichten on folios 305vb-306vb</p>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="annals">
+                <pb n="305v"/><cb n="b"/>             
+                <p n="1256">
+                    Anno domini<lb/>
+                    tausent zway<lb/>
+                    hundert vnd<lb/>
+                    sechs vnd funftzig iar<lb/>
+                    prediget prüder berch<hyphen/>-<lb break="no"/><lb/>
+                    told ze costentz zum<lb/>
+                    ersten
+                </p>        
+                <p n="1300">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drei<lb/>
+                    hundert des ersten<lb/>
+                    tags marty ward ge<hyphen/>-<lb break="no"/><lb/>
+                    martert der gu<hi rend="sup">o</hi>t sant<lb/>
+                    v<hi rend="sup">o</hi>lrich von den iuden<lb/>
+                    ze vberlingen der was<lb/>
+                    aines ledergerben<lb/>
+                    sun <choice><abbr>genan<am>-</am>t</abbr><expan>genannt</expan></choice> der frey<lb/>
+                </p>
+                <p n="1338">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vn<choice><abbr><am>¯</am></abbr><expan>vnd</expan></choice> acht<lb/>
+                    vnd dreisig iar des<lb/>
+                    hailig crütz tag zeherbst<lb/>
+                    ward ward altstete<choice><abbr><am>¯</am></abbr><expan>altsteten</expan></choice><lb/>
+                    die purg gewun<choice><abbr><am>¯</am>en</abbr><expan>gewunnen</expan></choice>
+                </p>
+                <p n="1314">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    dreihundert vnd vier<hyphen/>-<lb break="no"/><lb/>
+                    zehen iar an dem tag<lb/>
+                    als das hailig crütz<lb/>
+                    funden ward was<lb/>
+                    die grosz prunst ze<lb/>
+                    Costentz                
+                </p>
+                 <p n="1347">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vnd<lb/>
+                    siben vnd viertzig iar<lb/>
+                    an sant pauls beker<lb/>
+                    kam ain erdpidem dz<lb/>
+                    die stat villach zerviel
+                 </p>
+                <pb n="306r"/><cb n="r"/>
+                <p n="1347">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
+                    hundert vnd siben <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice><lb/>
+                    viertzig iar an sant<lb/>
+                    marx tag <choice><abbr>wurde<am>-</am></abbr><expan>wurden</expan></choice> die<lb/>
+                    juden ze costentz ge<lb/>
+                    brennt
+                </p>
+                 <p n="1348">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> acht<lb/>
+                    vnd viertzig iar gieng<lb/>
+                    ain gesellschaft <choice><abbr>ware<am>-</am></abbr><expan>waren</expan></choice><lb/>
+                    geisler
+                 </p>    
+                <p n="1355">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> funf<lb/>
+                    vnd funftzig iar auff<lb/>
+                    sant Bartholomeus<lb/>
+                    tag zugent die <choice><abbr>vo<am>-</am></abbr><expan>von</expan></choice><lb/>
+                    Costentz aus gen zurich<lb/>
+                    zü kung Carole von<lb/>
+                    Böhem was römischer<lb/>
+                    küng vnd zü hertzog<lb/>
+                    Albrecht dem lamen<lb/>
+                    von österreich
+                 </p>
+                <p n="1334">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> vier<lb/>
+                    vnd dreysig lag kaiser<lb/>
+                    ludwig vor merspurg
+                </p>
+                <p n="1344">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vnd vier<lb/>
+                    vnd viertzig In dem<lb/>
+                    winter was der grosz<lb/>
+                    tod ze Costentz
+                  </p>
+                <p n="1356">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vnd sechs<lb/>
+                    vnd funftzig an sant
+                <cb n="v"/>            
+                    la<!-- unclear --> tag komen vier<lb/>
+                    erdpidem ze basel
+                    </p>
+                 <p n="1359">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
+                    hundert vnd neun<lb/>
+                    vnd funftzig was ain<lb/>
+                    grosz sterb ze Costentz<lb/>
+                    der weret ain iar
+                 </p>
+                <p n="1386">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
+                    druihundert vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> sechs<lb/>
+                    vnd achtzig auff kliani<lb/>
+                    ward hertzog luipolt<lb/>
+                    von österreich vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> sibe<choice><abbr><am>-</am></abbr><expan>siben</expan></choice><lb/>
+                    gräfen vnd vil her<choice><abbr><am>-</am>en</abbr><expan>herren</expan></choice><lb/>
+                    ritter vnd knecht er<lb/>
+                    schlagen vor sempach<lb/>
+                    von schweitzern seine<choice><abbr><am>-</am></abbr><expan>seinen</expan></choice><lb/>
+                    aigen leuten
+                </p>
+                <p n="1388">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
+                    hundert vnd ächtvnd<lb/>
+                    achtzig des tags abrelle<choice><abbr><am>-</am></abbr><expan>abrellen</expan></choice><lb/>
+                    wurdent erschlagen<lb/>
+                    ze glaris her Hanns<lb/>
+                    von Clingenberg vnd<lb/>
+                    knecht vnd mer denn<lb/>
+                    sibenhundert erber<lb/>
+                    man<choice><abbr><am>-</am></abbr><expan>mann</expan></choice> vnd burger<lb/>
+                 </p>
+                <p n="1388">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<hyphen/>-<lb break="no"/>hundert
+                    vnd achtvnd<lb/>
+                    achtzig ward gräff<lb/>
+                    v<hi rend="sup">o</hi>lrich von wirte<choice><abbr><am>-</am></abbr>perg<expan>wirtenperg</expan></choice><lb/>
+                    erschlagen vor weil<lb/>
+                    der stat in schwaben<lb/>
+                    vnd vil her<choice><abbr><am>-</am>en</abbr><expan>herren</expan></choice> ritter<lb/>
+                    vnd knecht vnd des
+                <pb n="306v"/>
+                <cb n="a"/>
+                    selben streite lagend<lb/>
+                    die reichstet vnden<lb/>
+                    vnd ir diener vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> die<lb/>
+                    flucht namen die von<lb/>
+                    Nürenperg vnd hette<choice><abbr><am>-</am></abbr><expan>hetten</expan></choice><lb/>
+                    si das nit getan die<lb/>
+                    stet weren obgelegen<lb/>
+                    sy prachent auch den<lb/>
+                    pund zu<hi rend="sup">o</hi>m ersten vnd<lb/>
+                    schwürent den landfrid<lb/>
+                    wider den bund das<lb/>
+                    geschach nach dem<lb/>
+                    streit auff sant bar<hyphen/>-<lb break="no"/>tholomeus<lb/>
+                    tag
+                </p>    
+                <p n="1388">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drüi<lb/>
+                    hundert vnd achtvnd<lb/>
+                    achtzig am sun<choice><abbr><am>-</am></abbr>etag<expan>Sunnetag</expan></choice><lb/>
+                    in der kirchweihi in<lb/>
+                    der vierden stund nach<lb/>
+                    mittag vnd ze der<lb/>
+                    dritten stund nach<lb/>
+                    mitternacht verpran<lb/>
+                    Costentz vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> stadelhofe<choice><abbr><am>-</am></abbr><expan>stadelhofen</expan></choice><lb/>
+                    vnd augustinercloster<lb/>
+                    vnd gloggen vnd<lb/>
+                    was dar Inne was
+                 <cb n="b"/>
+                    vnd die mordergaß<lb/>
+                    die vnder vnd die<lb/>
+                    ober vnd die new<lb/>
+                    gaß pis ze des <!-- unclear --> mans<lb/>
+                    hauß des iuden bis<lb/>
+                    ze dem hauß der stral<lb/>
+                    vnd das grieß vnd<lb/>
+                    das merckstat bis an<lb/>
+                    das kaufhaus bey der<lb/>
+                    prugg</p>
+            </div>
+        </body>
+    </text>
+</TEI>

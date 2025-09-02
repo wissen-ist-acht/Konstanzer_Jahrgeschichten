@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Konstanzer Jahrgeschichten</title>
+                <respStmt>
+                    <resp>Encoded by</resp>
+                    <name ref="https://orcid.org/0000-0003-2419-4252" type="ORCID">[Ina Serif]</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <p>Digital edition</p>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <p>München, Staatsbibliothek, Cgm 568</p>
+                    </msIdentifier>
+                    <physDesc>
+                        <p>Konstanzer Jahrgeschichten on folios 149ra-149va</p>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="annals">
+                <pb n="148v"/><cb n="b"/>
+                <p n="1256">
+                    Anno domini 1256 bre<hyphen/>-<lb break="no"/>diget 
+                    bru<hi rend="sup">o</hi>der berchtolt ze<lb/> 
+                    costentz zu<hi rend="sup">o</hi>m ersten
+                </p>
+                <p n="1291">
+                    Anno domini 1291 vff<lb/> 
+                    sant martins tag ward bu<hi rend="sup">o</hi>ch<hyphen/>-<lb break="no"/>orn 
+                    gewunnen vnd nellenburg<lb/> 
+                    vnd weil Im Türgeẅ von<lb/> 
+                    dem hertzog <choice><abbr>vo<am>¯</am></abbr><expan>von</expan></choice> östereich
+                </p>
+                <p n="1300">
+                    Anno domini 1300 des<lb/> 
+                    ersten tags mertzen ward ge<hyphen/>-<lb break="no"/>martert 
+                    der gu<hi rend="sup">o</hi>te sant v<hi rend="sup">o</hi>lrich 
+                    von den Juden ze überlingen<lb/>  
+                    Der was ains ledergerbers<lb/>  
+                    sun was genant der freÿ 
+                </p>
+                <p n="1314">
+                    Anno domini 1314 Jare<lb/> 
+                    an dem tag als das hailig<lb/> 
+                    crütz funden ward was die<lb/> 
+                    gross brünst ze costentz 
+                </p>
+                <p n="1338">
+                    Anno domini 1338 Jare<lb/> 
+                    vff des hailigen crütz tag ze<lb/> 
+                    herbst ward altstetten die<lb/> 
+                    burg gewonnen
+                </p>
+                <p n="1347">
+                    Anno domini 1347 Jar<lb/> 
+                    vff den tag sant paulus be<hyphen/>-<lb break="no"/>kerung 
+                    kam ain erdbidem<lb/> 
+                    Das die statt villach zerviell
+                </p>
+                <p n="1347">
+                    Anno domini 1347 Jar<lb/> 
+                    In die martÿ wurdent die<lb/> 
+                    Juden ze Costentz gebrant
+                </p>
+                <p n="1348">
+                    Anno domini <del>14</del> 1348 Jar<lb/> 
+                    gieng ain gesellschaft waren<lb/> 
+                    gaÿsler
+                </p>
+                <p n="1355">
+                    Anno domini 1355 Jar 
+                    vff sant bartholomeus tag<lb/> 
+                    zugent die von Costentz vss
+                    <pb n="149r"/><cb n="a"/>
+                    gen zürich zu<hi rend="sup">o</hi> küng karle<lb/> 
+                    von beham was Römischer<lb/> 
+                    küng vnd hertzog albrecht<lb/> 
+                    dem lamen von östereich
+                </p>
+                <p n="1330">
+                    Anno domini 1330 Jar<lb/> 
+                    lag kaÿser ludwig vor merspurg
+                </p>
+                <p n="1349">
+                    Anno domini 1349 Jar<lb/>
+                    In dem winter was der<lb/> 
+                    gross tod ze costentz
+                </p>
+                <p n="1356">
+                    Anno domini 1356 Jar<lb/> 
+                    In die luce kamen vier erd<hyphen/>-<lb break="no"/>bidem 
+                    das basel verviell vnd<lb/> 
+                    vil bürgen da vmb vnd geschach<lb/>  
+                    grosser schad an lütten
+                </p>
+                <p n="1359">
+                    Anno domini 1359 Jare<lb/>  
+                    was ain grosser sterbent ze<lb/> 
+                    Costentz vnd wert ain Jar
+                </p>
+                <p n="1386">
+                    Anno domini 1386 Jare<lb/>  
+                    vff kÿlianÿ ward der hertzog<lb/>  
+                    leüpolt von Östereich vnd<lb/>  
+                    sÿben graffen vnd vil <choice><abbr>he<am>¯</am>ren</abbr><expan>herren</expan></choice><lb/>  
+                    Ritter vnd knecht erschlagen<lb/>  
+                    vor Sempach von Schweitzern<lb/>  
+                    sinen aigen lüten
+                </p>
+                <p n="1388">
+                    Anno domini 1388 Jar<lb/> 
+                    des tages abrellen wurdent<lb/> 
+                    erschlagen ze glaris Herr<lb/> 
+                    Hans von clingenberg vnd<lb/> 
+                    zwaintzig Ritter vnd knecht<lb/> 
+                    vnd mer denn sibenhundert<lb/> 
+                    erberger manne vnd burger
+                </p>
+                <p n="1388">
+                    Anno domini 1388 Jare<lb/> 
+                    ward graff vlrich von wirtem<hyphen/>-<lb break="no"/>berg 
+                    erschlagen vor weil<hyphen/>-<lb break="no"/> 
+                    der statt statt In Swaben
+                    <cb n="b"/>
+                    vnd vil <choice><abbr>he<am>¯</am>ren</abbr><expan>herren</expan></choice> Ritter vnd<lb/> 
+                    knecht vnd des selben streitt<lb/> 
+                    lagent die Reichstett vnder<lb/> 
+                    vnd Ir diener vnd die flücht<lb/> 
+                    nament die <choice><abbr>vo<am>¯</am></abbr><expan>von</expan></choice> <choice><abbr>nüre<am>¯</am>berg</abbr><expan>nürenberg</expan></choice> vnd<lb/> 
+                    tett Ir haubtman was ainer<lb/> 
+                    von hennenberg vnd wann<lb/> 
+                    sÿ das nit hetten getan den<lb/> 
+                    stetten wer wol <choice><abbr>gelunge<am>¯</am></abbr><expan>gelungen</expan></choice> Sÿ<lb/> 
+                    <del>brag</del> brachen auch den bunde<lb/>  
+                    zu<hi rend="sup">o</hi>m ersten vnd schwurent<lb/>   
+                    den landt fride wider dem<lb/>   
+                    bunde das <del>gesach</del> geschach nach<lb/> 
+                    dem streitt vff Sant barthol<hyphen/>-<lb break="no"/>meus 
+                    tag
+                </p>
+                <p n="1388">
+                    Anno domini 1388 Jare<lb/> 
+                    am Suntag vor liechtmiss<lb/> 
+                    In der vierden stunde nach<lb/> 
+                    mitterntag und ze der <choice><abbr>dritte<am>¯</am></abbr><expan>dritten</expan></choice><lb/> 
+                    stund nach mitternacht ver<hyphen/>-<lb break="no"/>bran 
+                    Costentz vnd stadelhofen<lb/> 
+                    und augustiner closter vnd<lb/> 
+                    glogken vnd was dar Inne<lb/> 
+                    was vnd die mörder gasse<lb/>
+                    die vnder vnd die ober gasse<lb/>
+                    vnd die neẅ gass bis ze des<lb/>
+                    maÿers hüse des Iuden bis<lb/> 
+                    zu<hi rend="sup">o</hi> dem haus zu<hi rend="sup">o</hi> der strall<lb/> 
+                    vnd griess vnd das märkstatt<lb/> 
+                    bis an das kauffhaus bÿ der<lb/> 
+                    burg 
+                </p>
+                <p n="1415">
+                    Anno domini <del>13</del> 1415 Jar<lb/> 
+                    ward der huss ze Costentz ge<hyphen/>-<lb break="no"/>brant 
+                    genant maister hans
+                </p>
+                <p n="1418">
+                    Anno domini 1418 jare
+                    <pb n="149v"/><cb n="a"/>
+                    was küng Sigmund zu<hi rend="sup">o</hi>m ersten hie zu<hi rend="sup">o</hi> augspurg
+                </p>
+            </div>
+        </body>
+    </text>
+</TEI>
