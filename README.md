@@ -14,7 +14,7 @@ The following manuscripts contain the *Jahrgeschichten*:
 
 ## Transcriptions and digital presentation
 
-The transcriptions of the manuscripts can be found here: (github.com/wissen-ist-acht/konstanzer_jahrgeschichten/manuscripts)[https://github.com/wissen-ist-acht/Konstanzer_Jahrgeschichten/tree/main/manuscripts].
+The transcriptions of the manuscripts can be found here: [github.com/wissen-ist-acht/konstanzer_jahrgeschichten/manuscripts](https://github.com/wissen-ist-acht/Konstanzer_Jahrgeschichten/tree/main/manuscripts).
 A digital presentation, which will accompany this project, aims at making the transcriptions comparable.
 To this end, the entries were enriched with meta data, e.g. corrected date/reference date, concrete format of dating (roman numbers, latin numbers, or written out numbers), dating style when referring to a saint (in Latin or in German), asf. 
 This enables a comparison from different perspectives and for different users and purposes. 
