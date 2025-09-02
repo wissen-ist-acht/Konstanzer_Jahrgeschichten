@@ -9,11 +9,12 @@ The transcriptions are diplomatic and are encoded in XML-TEI.
 The following manuscripts contain the *Jahrgeschichten*:
 
 1. Basel, UB, Cod. E VI 26
+
  Papier · 231 Bl. · Basel · 1420/30; 1439–71; 1473; 1474; nach 1474
 
 ## Transcriptions and digital presentation
 
-The transcriptions of the manuscripts can be found here: github.com/wissen-ist-acht/konstanzer_jahrgeschichten/manuscripts.
+The transcriptions of the manuscripts can be found here: (github.com/wissen-ist-acht/konstanzer_jahrgeschichten/manuscripts)[https://github.com/wissen-ist-acht/Konstanzer_Jahrgeschichten/tree/main/manuscripts].
 A digital presentation, which will accompany this project, aims at making the transcriptions comparable.
 To this end, the entries were enriched with meta data, e.g. corrected date/reference date, concrete format of dating (roman numbers, latin numbers, or written out numbers), dating style when referring to a saint (in Latin or in German), asf. 
 This enables a comparison from different perspectives and for different users and purposes. 
