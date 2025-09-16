@@ -10,7 +10,7 @@
   <script>
     ```js
   let c = new CETEI();
-    c.getHTML5('Fre_Hs_471.xml', function(data) {
+    c.getHTML5('manuscripts/Fre_Hs_471.xml', function(data) {
       document.getElementsByTagName("body")[0].appendChild(data);
     });
     ```
