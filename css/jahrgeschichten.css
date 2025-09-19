@@ -31,7 +31,12 @@ tei-msIdentifier > tei-repository::after {
 
 /* Reset idno within msIdentifier to inherit parent styles */
 tei-msIdentifier tei-idno {
-    display: inline;
+    background: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    border-radius: 0;
 }
 
 /* Contents */
