@@ -15,7 +15,9 @@
             <sourceDesc>
                 <msDesc>
                     <msIdentifier>
-                        <p>Freiburg, Universitätsbibliothek, Hs. 471</p>
+                        <settlement>Freiburg</settlement>
+                        <repository>Universitätsbibliothek</repository>
+                        <idno>Hs. 471</idno>
                     </msIdentifier>
                     <physDesc>
                         <p>Konstanzer Jahrgeschichten on folios 149ra-149va</p>
