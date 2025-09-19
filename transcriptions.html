@@ -36,7 +36,7 @@
     /* Style for the displayed 'n' attribute */
     tei-ab::before {
       content: attr(n) ". ";
-      font-weight: bold;
+      color: #6c757d; /* Muted grey for the year, no bold */
       margin-right: 0.5em;
       /* Optional: style the number differently if needed */
     }
@@ -49,9 +49,10 @@
       margin-bottom: 2rem;
     }
     .ms-identifier-header {
-      /* padding-bottom: 1rem; */
-      padding: 1rem 1.5rem;
-      margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #e0e0e0; /* A subtle separator line instead of a background */
+   
     }
     .transcription-entry:first-of-type {
       margin-top: 3rem;
