@@ -1,5 +1,40 @@
 /* Simple CSS for TEI manuscript catalog */
 
+/* --- Custom Design Refresh --- */
+
+body {
+    background-color: #f8f5f0; /* Parchment background */
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Merriweather', serif;
+  }
+  
+  /* Custom Navbar Color */
+  .navbar.bg-dark {
+    background-color: #2c3e50 !important; /* Deep blue */
+  }
+  
+  /* Custom Button Color */
+  .btn-primary {
+    background-color: #c0a062; /* Muted gold */
+    border-color: #c0a062;
+  }
+  .btn-primary:hover {
+    background-color: #a98c53;
+    border-color: #a98c53;
+  }
+  
+/* Homepage Info Cards */
+.info-cards > div {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e0dccc;
+  }
+
 /* Base styles */
 tei-TEI {
     max-width: 1200px;
