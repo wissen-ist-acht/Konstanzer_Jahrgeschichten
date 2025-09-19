@@ -16,7 +16,7 @@
       padding-top: 5rem;
     }
     /* Styles for the transcription view */
-    tei-p {
+    tei-p, tei-ab {
       margin-bottom: 1rem;
     }
   </style>
@@ -38,44 +38,58 @@
       },
       "lb": ["<br>"],
       "choice": function(e) {
-            // Here, display both abbreviation and expansion or decide on some logic
-            let result = document.createElement("span");
-            let abbrev = e.querySelector("abbr");
-            let am = e.querySelector("am");
-            let expan = e.querySelector("expan");
+            const result = document.createDocumentFragment();
+            const abbr = e.querySelector("tei-abbr");
+            const expan = e.querySelector("tei-expan");
 
-            if (abbrev) {
-              let abbrElement = document.createElement("abbr");
-              abbrElement.textContent = abbrev.textContent.trim();
-              result.appendChild(abbrElement);
-            }
-
-            if (am) {
-              let amElement = document.createElement("span");
-              amElement.style.textDecoration = "overline"; // or any custom style for 'am' note
-              amElement.textContent = am.textContent.trim();
-              result.appendChild(amElement);
+            if (abbr) {
+                // CETEI.js processes children first, so we can just move them.
+                // This preserves any formatting inside the abbreviation.
+                while (abbr.firstChild) {
+                    result.appendChild(abbr.firstChild);
+                }
             }
 
             if (expan) {
-              let expanElement = document.createElement("span");
-              expanElement.style.fontStyle = "italic";
-              expanElement.textContent = ` (${expan.textContent.trim()})`; // or however you wish to display the expansion
-              result.appendChild(expanElement);
+                const expanSpan = document.createElement("span");
+                expanSpan.className = "expan";
+                // Display the expansion in square brackets, as requested.
+                expanSpan.textContent = ` [${expan.textContent.trim()}]`;
+                result.appendChild(expanSpan);
             }
 
             return result;
           },
-          "hi": function(e) {
-            let span = document.createElement("span");
-            if (e.getAttribute("rend") === "sup") {
-              span.style.verticalAlign = "super"; // Make it superscript
+          "am": function(e) {
+        const content = e.textContent.trim();
+        if (content === '¯' || content === '-') {
+            // Replace macron or hyphen-as-macron with a combining overline.
+            return document.createTextNode('\u0304'); // COMBINING OVERLINE
+        }
+        // For other markers (like combining letters), pass them through.
+        return document.createTextNode(content);
+      },
+      "hi": function(e) {
+        if (e.getAttribute("rend") === "sup") {
+            const content = e.textContent.trim();
+            if (content === 'o') {
+                // Place 'o' over the preceding letter using a combining character.
+                return document.createTextNode('\u0366'); // COMBINING LATIN SMALL LETTER O
             }
+            // Fallback for other superscript content.
+            const sup = document.createElement("sup");
             for (let node of e.childNodes) {
-              span.appendChild(node.cloneNode(true));
+                sup.appendChild(node.cloneNode(true));
             }
-            return span;
-          },
+            return sup;
+        }
+        // For other 'hi' elements, just pass them through.
+        const span = document.createElement("span");
+        for (let node of e.childNodes) {
+            span.appendChild(node.cloneNode(true));
+        }
+        return span;
+      },
           "hyphen": ["-"], // Or however you wish to treat <hyphen/> elements
         }
       }
