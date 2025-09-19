@@ -29,17 +29,9 @@ tei-msIdentifier > tei-repository::after {
     content: ", ";
 }
 
-/* Style the parts of the manuscript identifier */
-tei-settlement {
-    color: #555;
-}
-
-tei-repository {
-    font-style: italic;
-}
-
-tei-idno {
-    font-family: monospace;
+/* Reset idno within msIdentifier to inherit parent styles */
+tei-msIdentifier tei-idno {
+    all: unset;
 }
 
 /* Contents */
