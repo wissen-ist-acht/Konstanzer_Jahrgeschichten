@@ -31,7 +31,7 @@ tei-msIdentifier > tei-repository::after {
 
 /* Reset idno within msIdentifier to inherit parent styles */
 tei-msIdentifier tei-idno {
-    all: unset;
+    display: inline;
 }
 
 /* Contents */
