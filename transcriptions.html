@@ -1,0 +1,75 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/tei.css">
+  <script src="js/CETEI.js"></script>
+  <script>
+  let c = new CETEI();
+    let behaviors = {
+    "tei": {
+      "head": function(e) {
+        let level = document.evaluate("count(ancestor::tei-div)", e, null, XPathResult.NUMBER_TYPE, null);
+        let result = document.createElement("h" + level.numberValue);
+        for (let n of Array.from(e.childNodes)) {
+          result.appendChild(n.cloneNode());
+        }
+        return result;
+      },
+      "lb": ["<br>"],
+      "choice": function(e) {
+            // Here, display both abbreviation and expansion or decide on some logic
+            let result = document.createElement("span");
+            let abbrev = e.querySelector("abbr");
+            let am = e.querySelector("am");
+            let expan = e.querySelector("expan");
+
+            if (abbrev) {
+              let abbrElement = document.createElement("abbr");
+              abbrElement.textContent = abbrev.textContent.trim();
+              result.appendChild(abbrElement);
+            }
+
+            if (am) {
+              let amElement = document.createElement("span");
+              amElement.style.textDecoration = "overline"; // or any custom style for 'am' note
+              amElement.textContent = am.textContent.trim();
+              result.appendChild(amElement);
+            }
+
+            if (expan) {
+              let expanElement = document.createElement("span");
+              expanElement.style.fontStyle = "italic";
+              expanElement.textContent = ` (${expan.textContent.trim()})`; // or however you wish to display the expansion
+              result.appendChild(expanElement);
+            }
+
+            return result;
+          },
+          "hi": function(e) {
+            let span = document.createElement("span");
+            if (e.getAttribute("rend") === "sup") {
+              span.style.verticalAlign = "super"; // Make it superscript
+            }
+            for (let node of e.childNodes) {
+              span.appendChild(node.cloneNode(true));
+            }
+            return span;
+          },
+          "hyphen": ["-"], // Or however you wish to treat <hyphen/> elements
+        }
+      }
+  c.addBehaviors(behaviors);
+    c.getHTML5('manuscripts/Fre_Hs_471.xml', function(data) {
+      document.getElementsByTagName("body")[0].appendChild(data);
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
+```
