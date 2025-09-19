@@ -24,16 +24,17 @@ body {
   .btn-primary:hover {
     background-color: #a98c53;
     border-color: #a98c53;
+
   }
   
 /* Homepage Info Cards */
-.info-cards > div {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #e0dccc;
-  }
+/* .info-cards > div {
+  /*  background-color: #fff;
+  /* padding: 2rem;
+  /*  border-radius: 0.5rem;
+  /*  box-shadow: none; /* Remove shadow for a flatter look */
+  /*  border: 1px solid #ddd; /* A simple, clean border */
+ /* } */
 
 /* Base styles */
 tei-TEI {
