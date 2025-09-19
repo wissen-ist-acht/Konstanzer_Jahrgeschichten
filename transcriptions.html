@@ -40,6 +40,12 @@
       margin-right: 0.5em;
       /* Optional: style the number differently if needed */
     }
+    .transcription-body {
+      display: none;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+  
+    }
     /* Hide the 'n' attribute if it's not present or if you want to control its display more precisely */
     tei-ab:not([n])::before {
       content: none;
@@ -50,9 +56,24 @@
     }
     .ms-identifier-header {
     padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid #e0e0e0; /* A subtle separator line instead of a background */
-   
+    cursor: pointer;
+      position: relative;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .ms-identifier-header::after {
+      content: '▼';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+    .ms-identifier-header.active::after {
+      content: '▲';
     }
     .transcription-entry:first-of-type {
       margin-top: 3rem;
@@ -149,24 +170,36 @@
           // Create a container for each transcription to keep them separate
           const transcriptionContainer = document.createElement('div');
           transcriptionContainer.className = 'transcription-entry';
+          const msId = doc.querySelector("tei-msidentifier");
+          const teiText = doc.querySelector("tei-text");
 
-    // Find the msIdentifier in the processed document
-    const msId = doc.querySelector("tei-msidentifier");
-
-    if (msId) {
+          if (msId && teiText) {
             // Create a specific container for the identifier and move it there.
             const msIdContainer = document.createElement('div');
             msIdContainer.className = 'ms-identifier-header';
             msIdContainer.appendChild(msId);
             transcriptionContainer.appendChild(msIdContainer);
-          }
-
-          // Find the main text body and append it directly. This ignores the TEI header entirely.
-          const teiText = doc.querySelector("tei-text");
-          if (teiText) {
+            // Add class to the text body to control its visibility
+            teiText.classList.add('transcription-body');
             transcriptionContainer.appendChild(teiText);
+
+            // Add click event to toggle visibility
+            msIdContainer.addEventListener('click', function() {
+              this.classList.toggle('active');
+              const content = this.nextElementSibling;
+              if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          } else {
+            if (msId) transcriptionContainer.appendChild(msId);
+            if (teiText) transcriptionContainer.appendChild(teiText);
+         
           }
 
+        
           // Add a horizontal rule for visual separation between entries
           transcriptionContainer.appendChild(document.createElement('hr'));
           main.appendChild(transcriptionContainer);
