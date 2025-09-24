@@ -155,7 +155,20 @@
         }
         return span;
       },
-          "hyphen": ["-"], // Or however you wish to treat <hyphen/> elements
+"pb": function(e) {
+        const folio = e.getAttribute("n");
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(document.createElement("br"));
+        const marker = document.createElement("span");
+        marker.className = "pb-marker";
+        marker.textContent = `[f. ${folio}] `;
+        fragment.appendChild(marker);
+        return fragment;
+      },
+          "hyphen": function(e) {
+            // Conditionally return a hyphen.
+            return e.nextElementSibling && e.nextElementSibling.tagName === 'BR' ? '' : '-';
+          },
         }
       }
   c.addBehaviors(behaviors);
@@ -207,12 +220,14 @@
       });
     }
     // Load the transcription files
-    loadTranscription('manuscripts/Fre_Hs_471.xml');
-    loadTranscription('manuscripts/Got_Chart_158.xml');
-    loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml');
-    loadTranscription('manuscripts/Hei_cpg_475.xml');
-    loadTranscription('manuscripts/Mue_Cgm_568.xml');
-    loadTranscription('manuscripts/StG_Cod_Sang_630.xml');
+    loadTranscription('manuscripts/Fre_Hs_471.xml'); // Freiburg, Universitätsbibliothek, Hs. 471
+    loadTranscription('manuscripts/Got_Chart_158.xml'); // Gotha, Forschungsbibliothek, Chart. A 158
+    loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml'); // Heidelberg, Universitätsbibliothek, Cod. Sal. IX, 28
+    loadTranscription('manuscripts/Hei_cpg_475.xml'); // Heidelberg, Universitätsbibliothek, Cpg 475
+    loadTranscription('manuscripts/Mue_Cgm_567.xml'); // München, Staatsbibliothek, Cgm 567
+    loadTranscription('manuscripts/Mue_Cgm_568.xml'); // München, Staatsbibliothek, Cgm 568
+    loadTranscription('manuscripts/StG_Cod_Sang_630.xml'); // St. Gallen, Stiftsbibliothek, Cod. Sang. 630
+
   });
   // To add another XML file, just add another line like this:
   // loadTranscription('manuscripts/your_other_file.xml');
