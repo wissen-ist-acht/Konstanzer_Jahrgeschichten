@@ -15,10 +15,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 5rem; /* Account for fixed navbar */
+        }
+        main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        main > h2 {
+            margin-bottom: 3rem; /* More space below the main title */
+        }
+        .manuscript-entry {
+            margin-bottom: 2.5rem; /* Space between manuscript entries */
+        }
+        .manuscript-entry h3 {
+            font-size: 1.4rem; /* Smaller than Bootstrap default */
+        }
+        .manuscript-entry h4 {
+            font-size: 1.1rem; /* Smaller than Bootstrap default */
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Konstanzer Jahrgeschichten</h1>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">Konstanzer Jahrgeschichten</a>
@@ -28,10 +50,10 @@
               <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                   <li class="nav-item dropdown">
-                  <a class="nav-link" href="manuscripts.html">Manuscripts</a>
+                    <a class="nav-link active" aria-current="page" href="manuscripts.html">Manuscripts</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="transcriptions.html">Transcriptions</a>
+                    <a class="nav-link" href="transcriptions.html">Transcriptions</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="https://www.zotero.org/groups/6133894/konstanzer_jahrgeschichten/library" target="_blank">Literature</a>
@@ -43,9 +65,7 @@
               </div>
             </div>
           </nav>
-    </header>
-
-    <main>
+    <main class="container">
         <h2>Overview of the manuscripts</h2>
 
         <section class="manuscript-entry">
