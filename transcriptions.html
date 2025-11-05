@@ -309,6 +309,50 @@
           main.appendChild(transcriptionContainer);
         }
       });
+    // Function to load a single transcription
+function loadSingleTranscription(fileUrl) {
+  // Clear the main container
+  const main = document.querySelector("main");
+  if (main) {
+    // Keep the title, remove everything else
+    main.innerHTML = `
+      <h1>Transcriptions of the Konstanzer Jahrgeschichten</h1>
+      <h2>(work in progress)</h2>
+    `;
+    
+    // Load the selected transcription
+    c.getHTML5(fileUrl, function(doc) {
+      const transcriptionContainer = document.createElement('div');
+      transcriptionContainer.className = 'transcription-entry';
+      const msId = doc.querySelector("tei-msidentifier");
+      const teiText = doc.querySelector("tei-text");
+
+      if (msId && teiText) {
+        const msIdContainer = document.createElement('div');
+        msIdContainer.className = 'ms-identifier-header';
+        msIdContainer.appendChild(msId);
+        transcriptionContainer.appendChild(msIdContainer);
+        
+        teiText.classList.add('transcription-body');
+        teiText.style.display = 'block'; // Show by default for single transcription
+        transcriptionContainer.appendChild(teiText);
+
+        // Add click event to toggle visibility
+        msIdContainer.addEventListener('click', function() {
+          this.classList.toggle('active');
+          const content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      
+      main.appendChild(transcriptionContainer);
+    });
+  }
+}
     }
     // Load the transcription files
     loadTranscription('manuscripts/Fre_Hs_471.xml'); // 2. Freiburg, Universitätsbibliothek, Hs. 471
@@ -337,8 +381,21 @@
               <li class="nav-item dropdown">
               <a class="nav-link" href="manuscripts.html">Manuscripts</a>
             </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="transcriptions.html">Transcriptions</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="transcriptionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Transcriptions
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="transcriptionsDropdown">
+                  <li><a class="dropdown-item" href="transcriptions.html">All Transcriptions</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Fre_Hs_471.xml')">Freiburg, Hs. 471</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Got_Chart_158.xml')">Gotha, Chart. A 158</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml')">Heidelberg, Cod. Sal. IX, 28</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Hei_cpg_475.xml')">Heidelberg, Cpg 475</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Mue_Cgm_567.xml')">München, Cgm 567</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Mue_Cgm_568.xml')">München, Cgm 568</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/StG_Cod_Sang_630.xml')">St. Gallen, Cod. Sang. 630</a></li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://www.zotero.org/groups/6133894/konstanzer_jahrgeschichten/library" target="_blank">Literature</a>
