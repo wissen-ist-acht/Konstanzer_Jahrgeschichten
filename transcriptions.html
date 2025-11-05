@@ -78,6 +78,19 @@
     .transcription-entry:first-of-type {
       margin-top: 3rem;
     }
+    /* Abbreviation tooltip styling */
+    .tei-abbreviation {
+      display: inline-block;
+      cursor: help;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+      color: #0066cc;
+    }
+
+    .tei-abbreviation:hover {
+      color: #004499;
+    }
 
   </style>
 
@@ -102,38 +115,86 @@
         return;
       },
       "lb": ["<br>"],
-      "choice": function(e) {
-            const result = document.createDocumentFragment();
-            const abbr = e.querySelector("tei-abbr");
-            const expan = e.querySelector("tei-expan");
+      // "choice": function(e) {
+      //       const result = document.createDocumentFragment();
+      //       const abbr = e.querySelector("tei-abbr");
+      //       const expan = e.querySelector("tei-expan");
 
-            if (abbr) {
-                // CETEI.js processes children first, so we can just move them.
-                // This preserves any formatting inside the abbreviation.
-                while (abbr.firstChild) {
-                    result.appendChild(abbr.firstChild);
+      //       if (abbr) {
+      //           // CETEI.js processes children first, so we can just move them.
+      //           // This preserves any formatting inside the abbreviation.
+      //           while (abbr.firstChild) {
+      //               result.appendChild(abbr.firstChild);
+      //           }
+      //       }
+
+      //       if (expan) {
+      //           const expanSpan = document.createElement("span");
+      //           expanSpan.className = "expan";
+      //           // Display the expansion in square brackets, as requested.
+      //           expanSpan.textContent = ` [${expan.textContent.trim()}]`;
+      //           result.appendChild(expanSpan);
+      //       }
+
+      //       return result;
+      //     },
+  "choice": function(e) {
+    const abbr = e.querySelector("tei-abbr");
+    const expan = e.querySelector("tei-expan");
+    const am = e.querySelector("tei-am");
+
+    
+    // Create an abbr element for the tooltip
+    const result = document.createElement("abbr");
+    result.classList.add("tei-abbreviation");
+
+        if (abbr) {
+            let abbrText = abbr.textContent.trim();
+        
+            // If there's an <am> element, add the combining overline to the last character
+            if (am && (am.textContent.trim() === '¯' || am.textContent.trim() === '-')) {
+                // Add combining overline to the last character of the abbreviation
+                 if (abbrText.length > 0) {
+                    abbrText = abbrText.slice(0, -1) + abbrText.slice(-1) + '\u0304';
                 }
             }
-
-            if (expan) {
-                const expanSpan = document.createElement("span");
-                expanSpan.className = "expan";
-                // Display the expansion in square brackets, as requested.
-                expanSpan.textContent = ` [${expan.textContent.trim()}]`;
-                result.appendChild(expanSpan);
-            }
-
-            return result;
-          },
-          "am": function(e) {
-        const content = e.textContent.trim();
-        if (content === '¯' || content === '-') {
-            // Replace macron or hyphen-as-macron with a combining overline.
-            return document.createTextNode('\u0304'); // COMBINING OVERLINE
+            result.textContent = abbrText;
+       }
+    
+        if (expan) {
+          // Set the expansion as the title attribute (tooltip)
+            result.setAttribute("title", expan.textContent.trim());
         }
-        // For other markers (like combining letters), pass them through.
-        return document.createTextNode(content);
-      },
+    
+        return result;
+},
+    
+//     if (abbr) {
+//         // Get the text content of the abbreviation
+//         result.textContent = abbr.textContent.trim();
+//     }
+    
+//     if (expan) {
+//         // Set the expansion as the title attribute (tooltip)
+//         result.setAttribute("title", expan.textContent.trim());
+//     }
+    
+//     return result;
+// },
+      //     "am": function(e) {
+      //   const content = e.textContent.trim();
+      //   if (content === '¯' || content === '-') {
+      //       // Replace macron or hyphen-as-macron with a combining overline.
+      //       return document.createTextNode('\u0304'); // COMBINING OVERLINE
+      //   }
+      //   // For other markers (like combining letters), pass them through.
+      //   return document.createTextNode(content);
+      // },
+             "am": function(e) {
+    // Don't return anything - the combining character will be handled 
+    // by the parent choice behavior
+               return document.createTextNode('');
+            },
       "hi": function(e) {
         if (e.getAttribute("rend") === "sup") {
             const content = e.textContent.trim();
