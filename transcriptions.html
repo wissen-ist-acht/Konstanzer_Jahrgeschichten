@@ -78,9 +78,17 @@
     .transcription-entry:first-of-type {
       margin-top: 3rem;
     }
+
+    /* Overlined letter styling */
+    .overlined-letter {
+    text-decoration: overline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: currentColor; /* This makes the overline match the text color */
+}
+
     /* Abbreviation tooltip styling */
     .tei-abbreviation {
-      display: inline-block;
+      /* display: inline-block; */
       cursor: help;
       text-decoration: underline;
       text-decoration-style: dotted;
@@ -141,38 +149,50 @@
   "choice": function(e) {
     const abbr = e.querySelector("tei-abbr");
     const expan = e.querySelector("tei-expan");
-    const am = e.querySelector("tei-am");
-
     
-    // Create an abbr element for the tooltip
-    const result = document.createElement("abbr");
-    result.classList.add("tei-abbreviation");
-
-        if (abbr) {
-            let abbrText = abbr.textContent.trim();
+        // Create an abbr element for the tooltip
+        const result = document.createElement("abbr");
+        result.classList.add("tei-abbreviation");
         
-                // If there's an <am> element with overline, handle it specially
+        if (abbr) {
+            // Check if there's an <am> element inside the abbreviation
+            const am = abbr.querySelector("tei-am");
+            
             if (am && (am.textContent.trim() === '¯' || am.textContent.trim() === '-')) {
-                // Create a span for the last character with overline
-                const span = document.createElement("span");
-                span.className = "overlined-letter";
+                // Get all text nodes and elements before the <am>
+                const walker = document.createTreeWalker(
+                    abbr,
+                    NodeFilter.SHOW_TEXT,
+                    null,
+                    false
+                );
                 
-                if (abbrText.length > 0) {
-                    // Add all characters except the last one as regular text
-                    if (abbrText.length > 1) {
-                        result.appendChild(document.createTextNode(abbrText.slice(0, -1)));
+                let textContent = '';
+                let node;
+                while (node = walker.nextNode()) {
+                    if (!am.contains(node)) {
+                        textContent += node.textContent;
                     }
-                    // Add the last character in the special span
-                    span.textContent = abbrText.slice(-1);
+                }
+                
+                if (textContent.length > 0) {
+                    // Add all characters except the last one
+                    if (textContent.length > 1) {
+                        result.appendChild(document.createTextNode(textContent.slice(0, -1)));
+                    }
+                    // Add the last character with overline
+                    const span = document.createElement("span");
+                    span.className = "overlined-letter";
+                    span.textContent = textContent.slice(-1);
                     result.appendChild(span);
                 }
             } else {
-                result.textContent = abbrText;
+                // No overline needed, just use the text content
+                result.textContent = abbr.textContent.trim();
             }
         }
         
         if (expan) {
-            // Set the expansion as the title attribute (tooltip)
             result.setAttribute("title", expan.textContent.trim());
         }
         
