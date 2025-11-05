@@ -104,299 +104,192 @@
 
   <!-- CETEIcean script -->
 
-  <script src="js/CETEI.js"></script>
-  <script>
-  let c = new CETEI();
-    let behaviors = {
-    "tei": {
-      "head": function(e) {
-        let level = document.evaluate("count(ancestor::tei-div)", e, null, XPathResult.NUMBER_TYPE, null);
-        let result = document.createElement("h" + level.numberValue);
-        for (let n of Array.from(e.childNodes)) {
-          result.appendChild(n.cloneNode());
-        }
-        return result;
-      },
-      "teiHeader": function(e) {
-        // Override default behavior, which hides the whole header.
-        // We'll handle visibility in the loadTranscription function.
-        return;
-      },
-      "lb": ["<br>"],
-      // "choice": function(e) {
-      //       const result = document.createDocumentFragment();
-      //       const abbr = e.querySelector("tei-abbr");
-      //       const expan = e.querySelector("tei-expan");
-
-      //       if (abbr) {
-      //           // CETEI.js processes children first, so we can just move them.
-      //           // This preserves any formatting inside the abbreviation.
-      //           while (abbr.firstChild) {
-      //               result.appendChild(abbr.firstChild);
-      //           }
-      //       }
-
-      //       if (expan) {
-      //           const expanSpan = document.createElement("span");
-      //           expanSpan.className = "expan";
-      //           // Display the expansion in square brackets, as requested.
-      //           expanSpan.textContent = ` [${expan.textContent.trim()}]`;
-      //           result.appendChild(expanSpan);
-      //       }
-
-      //       return result;
-      //     },
-  "choice": function(e) {
-    const abbr = e.querySelector("tei-abbr");
-    const expan = e.querySelector("tei-expan");
-    
-        // Create an abbr element for the tooltip
-        const result = document.createElement("abbr");
-        result.classList.add("tei-abbreviation");
-        
-        if (abbr) {
-            // Check if there's an <am> element inside the abbreviation
-            const am = abbr.querySelector("tei-am");
-            
-            if (am && (am.textContent.trim() === '¯' || am.textContent.trim() === '-')) {
-                // Get all text nodes and elements before the <am>
-                const walker = document.createTreeWalker(
-                    abbr,
-                    NodeFilter.SHOW_TEXT,
-                    null,
-                    false
-                );
-                
-                let textContent = '';
-                let node;
-                while (node = walker.nextNode()) {
-                    if (!am.contains(node)) {
-                        textContent += node.textContent;
-                    }
-                }
-                
-                if (textContent.length > 0) {
-                    // Add all characters except the last one
-                    if (textContent.length > 1) {
-                        result.appendChild(document.createTextNode(textContent.slice(0, -1)));
-                    }
-                    // Add the last character with overline
-                    const span = document.createElement("span");
-                    span.className = "overlined-letter";
-                    span.textContent = textContent.slice(-1);
-                    result.appendChild(span);
-                }
-            } else {
-                // No overline needed, just use the text content
-                result.textContent = abbr.textContent.trim();
-            }
-        }
-        
-        if (expan) {
-            result.setAttribute("title", expan.textContent.trim());
-        }
-        
-        return result;
-    },
-    
-//     if (abbr) {
-//         // Get the text content of the abbreviation
-//         result.textContent = abbr.textContent.trim();
-//     }
-    
-//     if (expan) {
-//         // Set the expansion as the title attribute (tooltip)
-//         result.setAttribute("title", expan.textContent.trim());
-//     }
-    
-//     return result;
-// },
-      //     "am": function(e) {
-      //   const content = e.textContent.trim();
-      //   if (content === '¯' || content === '-') {
-      //       // Replace macron or hyphen-as-macron with a combining overline.
-      //       return document.createTextNode('\u0304'); // COMBINING OVERLINE
-      //   }
-      //   // For other markers (like combining letters), pass them through.
-      //   return document.createTextNode(content);
-      // },
-             "am": function(e) {
-    // Don't return anything - the combining character will be handled 
-    // by the parent choice behavior
-               return document.createTextNode('');
-            },
-      "hi": function(e) {
-        if (e.getAttribute("rend") === "sup") {
-            const content = e.textContent.trim();
-            if (content === 'o') {
-                // Place 'o' over the preceding letter using a combining character.
-                return document.createTextNode('\u0366'); // COMBINING LATIN SMALL LETTER O
-            }
-            // Fallback for other superscript content.
-            const sup = document.createElement("sup");
-            for (let node of e.childNodes) {
-                sup.appendChild(node.cloneNode(true));
-            }
-            return sup;
-        }
-        // For other 'hi' elements, just pass them through.
-        const span = document.createElement("span");
-        for (let node of e.childNodes) {
-            span.appendChild(node.cloneNode(true));
-        }
-        return span;
-      },
-"pb": function(e) {
-        const folio = e.getAttribute("n");
-        const fragment = document.createDocumentFragment();
-        fragment.appendChild(document.createElement("br"));
-        const marker = document.createElement("span");
-        marker.className = "pb-marker";
-        marker.textContent = `[f. ${folio}] `;
-        fragment.appendChild(marker);
-        return fragment;
-      },
-          "hyphen": function(e) {
-            // Conditionally return a hyphen.
-            return e.nextElementSibling && e.nextElementSibling.tagName === 'BR' ? '' : '-';
-          },
-        }
+ <!-- CETEIcean script -->
+<script src="js/CETEI.js"></script>
+<script>
+let c = new CETEI();
+let behaviors = {
+  "tei": {
+    "head": function(e) {
+      let level = document.evaluate("count(ancestor::tei-div)", e, null, XPathResult.NUMBER_TYPE, null);
+      let result = document.createElement("h" + level.numberValue);
+      for (let n of Array.from(e.childNodes)) {
+        result.appendChild(n.cloneNode());
       }
-  c.addBehaviors(behaviors);
-    // Wait for the DOM to be fully loaded before running the script
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const main = document.querySelector("main");
-
-        // Check if a specific manuscript is requested via URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-    const requestedMs = urlParams.get('ms');
-    
-    // Mapping of URL parameters to file paths
-    const msFiles = {
-        'Fre_Hs_471': 'manuscripts/Fre_Hs_471.xml',
-        'Got_Chart_158': 'manuscripts/Got_Chart_158.xml',
-        'Hei_Cod_Sal_IX_28': 'manuscripts/Hei_Cod_Sal_IX_28.xml',
-        'Hei_cpg_475': 'manuscripts/Hei_cpg_475.xml',
-        'Mue_Cgm_567': 'manuscripts/Mue_Cgm_567.xml',
-        'Mue_Cgm_568': 'manuscripts/Mue_Cgm_568.xml',
-        'StG_Cod_Sang_630': 'manuscripts/StG_Cod_Sang_630.xml'
-    };
-    
-    if (requestedMs && msFiles[requestedMs]) {
-        // Load single transcription
-        loadTranscription(msFiles[requestedMs]);
-    } else {
-        // Load all transcriptions (existing behavior)
-        loadTranscription('manuscripts/Fre_Hs_471.xml');
-        loadTranscription('manuscripts/Got_Chart_158.xml');
-        loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml');
-        loadTranscription('manuscripts/Hei_cpg_475.xml');
-        loadTranscription('manuscripts/Mue_Cgm_567.xml');
-        loadTranscription('manuscripts/Mue_Cgm_568.xml');
-        loadTranscription('manuscripts/StG_Cod_Sang_630.xml');
-    }
-
-    // A reusable function to load and display a transcription
-    function loadTranscription(fileUrl) {
-      c.getHTML5(fileUrl, function(doc) {
-        if (main) {
-          // Create a container for each transcription to keep them separate
-          const transcriptionContainer = document.createElement('div');
-          transcriptionContainer.className = 'transcription-entry';
-          const msId = doc.querySelector("tei-msidentifier");
-          const teiText = doc.querySelector("tei-text");
-
-          if (msId && teiText) {
-            // Create a specific container for the identifier and move it there.
-            const msIdContainer = document.createElement('div');
-            msIdContainer.className = 'ms-identifier-header';
-            msIdContainer.appendChild(msId);
-            transcriptionContainer.appendChild(msIdContainer);
-            // Add class to the text body to control its visibility
-            teiText.classList.add('transcription-body');
-            transcriptionContainer.appendChild(teiText);
-
-            // Add click event to toggle visibility
-            msIdContainer.addEventListener('click', function() {
-              this.classList.toggle('active');
-              const content = this.nextElementSibling;
-              if (content.style.display === "block") {
-                content.style.display = "none";
-              } else {
-                content.style.display = "block";
-              }
-            });
-          } else {
-            if (msId) transcriptionContainer.appendChild(msId);
-            if (teiText) transcriptionContainer.appendChild(teiText);
-         
-          }
-
+      return result;
+    },
+    "teiHeader": function(e) {
+      return;
+    },
+    "lb": ["<br>"],
+    "choice": function(e) {
+      const abbr = e.querySelector("tei-abbr");
+      const expan = e.querySelector("tei-expan");
+      
+      const result = document.createElement("abbr");
+      result.classList.add("tei-abbreviation");
+      
+      if (abbr) {
+        const am = abbr.querySelector("tei-am");
         
-          // Add a horizontal rule for visual separation between entries
-          transcriptionContainer.appendChild(document.createElement('hr'));
-          main.appendChild(transcriptionContainer);
+        if (am && (am.textContent.trim() === '¯' || am.textContent.trim() === '-')) {
+          const walker = document.createTreeWalker(
+            abbr,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+          );
+          
+          let textContent = '';
+          let node;
+          while (node = walker.nextNode()) {
+            if (!am.contains(node)) {
+              textContent += node.textContent;
+            }
+          }
+          
+          if (textContent.length > 0) {
+            if (textContent.length > 1) {
+              result.appendChild(document.createTextNode(textContent.slice(0, -1)));
+            }
+            const span = document.createElement("span");
+            span.className = "overlined-letter";
+            span.textContent = textContent.slice(-1);
+            result.appendChild(span);
+          }
+        } else {
+          result.textContent = abbr.textContent.trim();
         }
-      });
-    // Function to load a single transcription
-function loadSingleTranscription(fileUrl) {
-  // Clear the main container
-  const main = document.querySelector("main");
-  if (main) {
-    // Keep the title, remove everything else
-    main.innerHTML = `
-      <h1>Transcriptions of the Konstanzer Jahrgeschichten</h1>
-      <h2>(work in progress)</h2>
-    `;
-    
-    // Load the selected transcription
-    c.getHTML5(fileUrl, function(doc) {
-      const transcriptionContainer = document.createElement('div');
-      transcriptionContainer.className = 'transcription-entry';
-      const msId = doc.querySelector("tei-msidentifier");
-      const teiText = doc.querySelector("tei-text");
-
-      if (msId && teiText) {
-        const msIdContainer = document.createElement('div');
-        msIdContainer.className = 'ms-identifier-header';
-        msIdContainer.appendChild(msId);
-        transcriptionContainer.appendChild(msIdContainer);
-        
-        teiText.classList.add('transcription-body');
-        teiText.style.display = 'block'; // Show by default for single transcription
-        transcriptionContainer.appendChild(teiText);
-
-        // Add click event to toggle visibility
-        msIdContainer.addEventListener('click', function() {
-          this.classList.toggle('active');
-          const content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
       }
       
-      main.appendChild(transcriptionContainer);
+      if (expan) {
+        result.setAttribute("title", expan.textContent.trim());
+      }
+      
+      return result;
+    },
+    "am": function(e) {
+      return document.createTextNode('');
+    },
+    "hi": function(e) {
+      if (e.getAttribute("rend") === "sup") {
+        const content = e.textContent.trim();
+        if (content === 'o') {
+          return document.createTextNode('\u0366');
+        }
+        const sup = document.createElement("sup");
+        for (let node of e.childNodes) {
+          sup.appendChild(node.cloneNode(true));
+        }
+        return sup;
+      }
+      const span = document.createElement("span");
+      for (let node of e.childNodes) {
+        span.appendChild(node.cloneNode(true));
+      }
+      return span;
+    },
+    "pb": function(e) {
+      const folio = e.getAttribute("n");
+      const fragment = document.createDocumentFragment();
+      fragment.appendChild(document.createElement("br"));
+      const marker = document.createElement("span");
+      marker.className = "pb-marker";
+      marker.textContent = `[f. ${folio}] `;
+      fragment.appendChild(marker);
+      return fragment;
+    },
+    "hyphen": function(e) {
+      return e.nextElementSibling && e.nextElementSibling.tagName === 'BR' ? '' : '-';
+    }
+  }
+};
+
+c.addBehaviors(behaviors);
+
+// Wait for the DOM to be fully loaded before running the script
+window.addEventListener('DOMContentLoaded', (event) => {
+  const main = document.querySelector("main");
+
+  // Check if a specific manuscript is requested via URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestedMs = urlParams.get('ms');
+  
+  // Mapping of URL parameters to file paths
+  const msFiles = {
+    'Fre_Hs_471': 'manuscripts/Fre_Hs_471.xml',
+    'Got_Chart_158': 'manuscripts/Got_Chart_158.xml',
+    'Hei_Cod_Sal_IX_28': 'manuscripts/Hei_Cod_Sal_IX_28.xml',
+    'Hei_cpg_475': 'manuscripts/Hei_cpg_475.xml',
+    'Mue_Cgm_567': 'manuscripts/Mue_Cgm_567.xml',
+    'Mue_Cgm_568': 'manuscripts/Mue_Cgm_568.xml',
+    'StG_Cod_Sang_630': 'manuscripts/StG_Cod_Sang_630.xml'
+  };
+
+  // A reusable function to load and display a transcription
+  function loadTranscription(fileUrl) {
+    c.getHTML5(fileUrl, function(doc) {
+      if (main) {
+        const transcriptionContainer = document.createElement('div');
+        transcriptionContainer.className = 'transcription-entry';
+        const msId = doc.querySelector("tei-msidentifier");
+        const teiText = doc.querySelector("tei-text");
+
+        if (msId && teiText) {
+          const msIdContainer = document.createElement('div');
+          msIdContainer.className = 'ms-identifier-header';
+          msIdContainer.appendChild(msId);
+          transcriptionContainer.appendChild(msIdContainer);
+          
+          teiText.classList.add('transcription-body');
+          
+          // Show by default if single manuscript, hide if multiple
+          if (requestedMs) {
+            teiText.style.display = "block";
+            msIdContainer.classList.add('active');
+          } else {
+            teiText.style.display = "none";
+          }
+          
+          transcriptionContainer.appendChild(teiText);
+
+          // Add click event to toggle visibility
+          msIdContainer.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        } else {
+          if (msId) transcriptionContainer.appendChild(msId);
+          if (teiText) transcriptionContainer.appendChild(teiText);
+        }
+
+        transcriptionContainer.appendChild(document.createElement('hr'));
+        main.appendChild(transcriptionContainer);
+      }
     });
   }
-}
-    }
-    // Load the transcription files
-    loadTranscription('manuscripts/Fre_Hs_471.xml'); // 2. Freiburg, Universitätsbibliothek, Hs. 471
-    loadTranscription('manuscripts/Got_Chart_158.xml'); // 3. Gotha, Forschungsbibliothek, Chart. A 158
-    loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml'); // 4. Heidelberg, Universitätsbibliothek, Cod. Sal. IX, 28
-    loadTranscription('manuscripts/Hei_cpg_475.xml'); // 5. Heidelberg, Universitätsbibliothek, Cpg 475
-    loadTranscription('manuscripts/Mue_Cgm_567.xml'); // 8. München, Staatsbibliothek, Cgm 567
-    loadTranscription('manuscripts/Mue_Cgm_568.xml'); // 9. München, Staatsbibliothek, Cgm 568
-    loadTranscription('manuscripts/StG_Cod_Sang_630.xml'); // 10. St. Gallen, Stiftsbibliothek, Cod. Sang. 630
 
-  });
-  // To add another XML file, just add another line like this:
-  // loadTranscription('manuscripts/your_other_file.xml');
- 
-  </script>
+  // Load transcriptions based on URL parameter
+  if (requestedMs && msFiles[requestedMs]) {
+    // Load single transcription
+    loadTranscription(msFiles[requestedMs]);
+  } else {
+    // Load all transcriptions
+    loadTranscription('manuscripts/Fre_Hs_471.xml');
+    loadTranscription('manuscripts/Got_Chart_158.xml');
+    loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml');
+    loadTranscription('manuscripts/Hei_cpg_475.xml');
+    loadTranscription('manuscripts/Mue_Cgm_567.xml');
+    loadTranscription('manuscripts/Mue_Cgm_568.xml');
+    loadTranscription('manuscripts/StG_Cod_Sang_630.xml');
+  }
+});
+</script> 
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -407,11 +300,11 @@ function loadSingleTranscription(fileUrl) {
           </button>
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item dropdown">
+              <li class="nav-item">
               <a class="nav-link" href="manuscripts.html">Manuscripts</a>
             </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="transcriptionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" aria-current="page"href="#" id="transcriptionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Transcriptions
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="transcriptionsDropdown">
