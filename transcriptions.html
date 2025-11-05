@@ -151,23 +151,33 @@
         if (abbr) {
             let abbrText = abbr.textContent.trim();
         
-            // If there's an <am> element, add the combining overline to the last character
+                // If there's an <am> element with overline, handle it specially
             if (am && (am.textContent.trim() === '¯' || am.textContent.trim() === '-')) {
-                // Add combining overline to the last character of the abbreviation
-                 if (abbrText.length > 0) {
-                    abbrText = abbrText.slice(0, -1) + abbrText.slice(-1) + '\u0304';
+                // Create a span for the last character with overline
+                const span = document.createElement("span");
+                span.className = "overlined-letter";
+                
+                if (abbrText.length > 0) {
+                    // Add all characters except the last one as regular text
+                    if (abbrText.length > 1) {
+                        result.appendChild(document.createTextNode(abbrText.slice(0, -1)));
+                    }
+                    // Add the last character in the special span
+                    span.textContent = abbrText.slice(-1);
+                    result.appendChild(span);
                 }
+            } else {
+                result.textContent = abbrText;
             }
-            result.textContent = abbrText;
-       }
-    
+        }
+        
         if (expan) {
-          // Set the expansion as the title attribute (tooltip)
+            // Set the expansion as the title attribute (tooltip)
             result.setAttribute("title", expan.textContent.trim());
         }
-    
+        
         return result;
-},
+    },
     
 //     if (abbr) {
 //         // Get the text content of the abbreviation
