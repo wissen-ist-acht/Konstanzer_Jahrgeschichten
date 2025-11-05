@@ -49,8 +49,21 @@
 						<li class="nav-item dropdown">
 						<a class="nav-link" href="manuscripts.html">Manuscripts</a>
 					</li>
-						<li class="nav-item">
-							<a class="nav-link" href="transcriptions.html">Transcriptions</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="transcriptionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Transcriptions
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="transcriptionsDropdown">
+							<li><a class="dropdown-item" href="transcriptions.html">All Transcriptions</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Fre_Hs_471.xml')">Freiburg, Hs. 471</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Got_Chart_158.xml')">Gotha, Chart. A 158</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml')">Heidelberg, Cod. Sal. IX, 28</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Hei_cpg_475.xml')">Heidelberg, Cpg 475</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Mue_Cgm_567.xml')">München, Cgm 567</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/Mue_Cgm_568.xml')">München, Cgm 568</a></li>
+							<li><a class="dropdown-item" href="#" onclick="loadSingleTranscription('manuscripts/StG_Cod_Sang_630.xml')">St. Gallen, Cod. Sang. 630</a></li>
+							</ul>
 						</li>
                         <li class="nav-item">
 							<a class="nav-link" href="https://www.zotero.org/groups/6133894/konstanzer_jahrgeschichten/library" target="_blank">Literature</a>
