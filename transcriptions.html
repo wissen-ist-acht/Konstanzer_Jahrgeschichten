@@ -102,8 +102,18 @@
       text-decoration: underline;
       text-decoration-style: dotted;
       text-underline-offset: 2px;
-      color: #0066cc;
     }
+
+    /* Color only the overlined letter */
+.overlined-letter {
+    color: #0066cc; 
+}
+
+  /* Color only the abbreviation mark  */
+  .abbreviation-mark {
+    color: #0066cc; 
+    font-style: italic;
+  }
 
     .tei-abbreviation:hover {
       color: #004499;
@@ -218,9 +228,36 @@ let behaviors = {
       fragment.appendChild(document.createElement("br"));
       const marker = document.createElement("span");
       marker.className = "pb-marker";
-      marker.textContent = `[f. ${folio}] `;
+      
+      // Check if there's a following <cb> element for column information
+      let nextSibling = e.nextElementSibling;
+      let columnInfo = '';
+      
+      // Look for the next <cb> element
+      while (nextSibling) {
+        if (nextSibling.tagName === 'TEI-CB') {
+          const column = nextSibling.getAttribute("n");
+          if (column) {
+            columnInfo = column;
+          }
+          break;
+        }
+        nextSibling = nextSibling.nextElementSibling;
+      }
+      
+      // Display folio and column information
+      if (columnInfo) {
+        marker.textContent = `[f. ${folio}${columnInfo}] `;
+      } else {
+        marker.textContent = `[f. ${folio}] `;
+      }
+      
       fragment.appendChild(marker);
       return fragment;
+    },
+    "cb": function(e) {
+      // Return empty since we handle column info in the pb behavior
+      return document.createTextNode('');
     },
     "hyphen": function(e) {
       return e.nextElementSibling && e.nextElementSibling.tagName === 'BR' ? '' : '-';
