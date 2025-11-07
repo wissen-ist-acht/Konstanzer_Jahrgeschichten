@@ -51,11 +51,11 @@
                 </ab>
                 <ab n="1338">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
-                    druihundert vn<choice><abbr><am>¯</am></abbr><expan>vnd</expan></choice> acht<lb/>
-                    vnd dreisig iar des<lb/>
+                    druihundert <choice><abbr>vn<am>¯</am></abbr><expan>vnd</expan></choice> acht<lb/>
+                    vnd dreysig iar des<lb/>
                     hailig crütz tag zeherbst<lb/>
-                    ward ward altstete<choice><abbr><am>¯</am></abbr><expan>altsteten</expan></choice><lb/>
-                    die purg gewun<choice><abbr><am>¯</am>en</abbr><expan>gewunnen</expan></choice>
+                    ward ward <choice><abbr>altstete<am>¯</am></abbr><expan>altsteten</expan></choice><lb/>
+                    die purg <choice><abbr>gewu<am>-</am>nen</abbr><expan>gewunnen</expan></choice>
                 </ab>
                 <ab n="1314">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
@@ -74,7 +74,7 @@
                     kam ain erdpidem dz<lb/>
                     die stat villach zerviel
                  </ab>
-                <pb n="306r"/><cb n="r"/>
+                <pb n="306r"/><cb n="a"/>
                 <ab n="1347">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
                     hundert vnd siben <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice><lb/>
@@ -105,7 +105,7 @@
                  </ab>
                 <ab n="1334">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
-                    druihundert vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> vier<lb/>
+                    druihundert <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> vier<lb/>
                     vnd dreysig lag kaiser<lb/>
                     ludwig vor merspurg
                 </ab>
@@ -120,8 +120,8 @@
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
                     druihundert vnd sechs<lb/>
                     vnd funftzig an sant
-                <cb n="v"/>            
-                    la<!-- unclear --> tag komen vier<lb/>
+                 <pb n="306r"/><cb n="b"/>   <lb/>   
+                    laux tag komen vier<lb/>
                     erdpidem ze basel
                     </ab>
                  <ab n="1359">
@@ -133,43 +133,44 @@
                  </ab>
                 <ab n="1386">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent<lb/>
-                    druihundert vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> sechs<lb/>
+                    druihundert <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> sechs<lb/>
                     vnd achtzig auff kliani<lb/>
                     ward hertzog luipolt<lb/>
-                    von österreich vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> sibe<choice><abbr><am>-</am></abbr><expan>siben</expan></choice><lb/>
-                    gräfen vnd vil her<choice><abbr><am>-</am>en</abbr><expan>herren</expan></choice><lb/>
+                    von österreich <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> <choice><abbr>sibe<am>-</am></abbr><expan>siben</expan></choice><lb/>
+                    gräfen vnd vil <choice><abbr>her<am>-</am>en</abbr><expan>herren</expan></choice><lb/>
                     ritter vnd knecht er<lb/>
                     schlagen vor sempach<lb/>
-                    von schweitzern seine<choice><abbr><am>-</am></abbr><expan>seinen</expan></choice><lb/>
+                    von schweitzern <choice><abbr>seine<am>-</am></abbr><expan>seinen</expan></choice><lb/>
                     aigen leuten
                 </ab>
                 <ab n="1388">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
                     hundert vnd ächtvnd<lb/>
-                    achtzig des tags abrelle<choice><abbr><am>-</am></abbr><expan>abrellen</expan></choice><lb/>
+                    achtzig des tags <choice><abbr>abrelle<am>-</am></abbr><expan>abrellen</expan></choice><lb/>
                     wurdent erschlagen<lb/>
                     ze glaris her Hanns<lb/>
                     von Clingenberg vnd<lb/>
+                    zwaintzig ritter vnd<lb/>
                     knecht vnd mer denn<lb/>
                     sibenhundert erber<lb/>
-                    man<choice><abbr><am>-</am></abbr><expan>mann</expan></choice> vnd burger<lb/>
+                    <choice><abbr>man<am>-</am></abbr><expan>mann</expan></choice> vnd burger<lb/>
                  </ab>
                 <ab n="1388">
-                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<hyphen/>-<lb break="no"/>hundert
-                    vnd achtvnd<lb/>
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drui<lb/>
+                    hundert vnd achtvnd<lb/>
                     achtzig ward gräff<lb/>
-                    v<hi rend="sup">o</hi>lrich von wirte<choice><abbr><am>-</am></abbr>perg<expan>wirtenperg</expan></choice><lb/>
+                    v<hi rend="sup">o</hi>lrich von <choice><abbr>wirte<am>-</am>perg</abbr><expan>wirtenperg</expan></choice><lb/>
                     erschlagen vor weil<lb/>
                     der stat in schwaben<lb/>
-                    vnd vil her<choice><abbr><am>-</am>en</abbr><expan>herren</expan></choice> ritter<lb/>
+                    vnd vil <choice><abbr>her<am>-</am>en</abbr><expan>herren</expan></choice> ritter<lb/>
                     vnd knecht vnd des
                 <pb n="306v"/>
-                <cb n="a"/>
-                    selben streite lagend<lb/>
+                <cb n="a"/><lb/>
+                    selben streite lagent<lb/>
                     die reichstet vnden<lb/>
-                    vnd ir diener vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> die<lb/>
+                    vnd ir diener <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> die<lb/>
                     flucht namen die von<lb/>
-                    Nürenperg vnd hette<choice><abbr><am>-</am></abbr><expan>hetten</expan></choice><lb/>
+                    Nürenperg vnd <choice><abbr>hette<am>-</am></abbr><expan>hetten</expan></choice><lb/>
                     si das nit getan die<lb/>
                     stet weren obgelegen<lb/>
                     sy prachent auch den<lb/>
@@ -177,23 +178,32 @@
                     schwürent den landfrid<lb/>
                     wider den bund das<lb/>
                     geschach nach dem<lb/>
-                    streit auff sant bar<hyphen/>-<lb break="no"/>tholomeus<lb/>
-                    tag
+                    streit auff sant bar<hyphen/>-<lb break="no"/>tholomeus tag
                 </ab>    
+                <ab n="1320">
+                    Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drüi<lb/>
+                    hundert <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> zwaintzig ja<lb/>
+                    auf martins tag ward<lb/>
+                    Büchhain <choice><abbr>gewun<am>-</am>en</abbr><expan>gewunnen</expan></choice><lb/>
+                    vnd Nellenpurg vnd<lb/>
+                    weil vnd Türgaw von<lb/>
+                    dem hertzogen von<lb/>
+                    österreich
+                </ab>
                 <ab n="1388">
                     Anno <choice><abbr>dm<am>-</am></abbr><expan>domini</expan></choice> tausent drüi<lb/>
                     hundert vnd achtvnd<lb/>
-                    achtzig am sun<choice><abbr><am>-</am></abbr>etag<expan>Sunnetag</expan></choice><lb/>
+                    achtzig am <choice><abbr>sun<am>-</am>etag</abbr><expan>Sunnetag</expan></choice><lb/>
                     in der kirchweihi in<lb/>
                     der vierden stund nach<lb/>
                     mittag vnd ze der<lb/>
                     dritten stund nach<lb/>
                     mitternacht verpran<lb/>
-                    Costentz vn<choice><abbr><am>-</am></abbr><expan>vnd</expan></choice> stadelhofe<choice><abbr><am>-</am></abbr><expan>stadelhofen</expan></choice><lb/>
+                    Costentz <choice><abbr>vn<am>-</am></abbr><expan>vnd</expan></choice> <choice><abbr>stadelhofe<am>-</am></abbr><expan>stadelhofen</expan></choice><lb/>
                     vnd augustinercloster<lb/>
                     vnd gloggen vnd<lb/>
                     was dar Inne was
-                 <cb n="b"/>
+                  <pb n="306v"/><cb n="b"/>   <lb/> 
                     vnd die mordergaß<lb/>
                     die vnder vnd die<lb/>
                     ober vnd die new<lb/>
