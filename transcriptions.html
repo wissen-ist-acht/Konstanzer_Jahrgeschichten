@@ -119,6 +119,19 @@
       color: #004499;
     }
 
+  /* Styling for later additions */
+  ins {
+  color: #006633; /* A dark green color */
+  font-style: italic;
+  background-color: #f0f8f0; /* A very light green background */
+  padding: 0 2px;
+  border-radius: 3px;
+  cursor: help; /* Show a help cursor to indicate a tooltip is available */
+  text-decoration: none; /* Remove the default underline for <ins> tags */
+}
+
+
+
   </style>
 
   <!-- CETEIcean script -->
@@ -261,7 +274,42 @@ let behaviors = {
     },
     "hyphen": function(e) {
       return e.nextElementSibling && e.nextElementSibling.tagName === 'BR' ? '' : '-';
+    },
+    "add": function(e) {
+  // Create an <ins> element, which is semantically correct for an insertion.
+  const insElement = document.createElement("ins");
+
+  // --- Build the tooltip text from the TEI attributes ---
+  let tooltipText = "Addition";
+  const placeAttr = e.getAttribute('place');
+  const handAttr = e.getAttribute('hand');
+
+  if (placeAttr) {
+    const place = placeAttr.replace('_', ' '); // Make 'margin_right' -> 'margin right'
+    tooltipText += ` in the ${place}`;
+  }
+  if (handAttr) {
+    const handId = handAttr.substring(1); // remove the '#'
+    // Find the hand's description in the <teiHeader> for a better tooltip
+    const handNote = document.querySelector(`tei-handnote[xml\\:id='${handId}'] p`);
+    if (handNote) {
+      tooltipText += ` (by: ${handNote.textContent.trim()})`;
+    } else {
+      tooltipText += ` (by hand: ${handId})`; // Fallback if not found
     }
+  }
+  
+  insElement.setAttribute("title", tooltipText);
+
+  // *** THE CRITICAL FIX IS HERE ***
+  // Move all the processed children (the actual text) from the original
+  // <tei-add> element into our new <ins> element.
+  while (e.firstChild) {
+    insElement.appendChild(e.firstChild);
+  }
+
+  return insElement;
+},
   }
 };
 
