@@ -160,6 +160,7 @@ let behaviors = {
     },
     "lb": ["<br>"],
 "choice": function(e) {
+if (e.querySelector("tei-abbr") && e.querySelector("tei-expan")) {
   const abbr = e.querySelector("tei-abbr");
   const expan = e.querySelector("tei-expan");
   
@@ -218,6 +219,30 @@ let behaviors = {
   }
   
   return result;
+}
+  // Handle editorial corrections (sic/corr)
+  else if (e.querySelector("tei-sic") && e.querySelector("tei-corr")) {
+    const sic = e.querySelector("tei-sic");
+    const corr = e.querySelector("tei-corr");
+    
+    // Create span with tooltip
+    const span = document.createElement("span");
+    span.className = "editorial-correction";
+    span.title = "Correction: " + corr.textContent.trim();
+    
+    // Style for editorial corrections
+    span.style.textDecoration = "underline";
+    span.style.textDecorationStyle = "wavy";
+    span.style.textDecorationColor = "#cc6600";
+    span.style.cursor = "help";
+    
+    // Copy the content from the sic element
+    while (sic.firstChild) {
+      span.appendChild(sic.firstChild);
+    }
+    
+    return span;
+  }
 },
     "am": function(e) {
       return document.createTextNode('');
@@ -314,19 +339,20 @@ let behaviors = {
 
   return insElement;
 },
+"unclear": function(e) {
+      const span = document.createElement("span");
+      span.className = "unclear";
+      span.title = "unclear: " + e.getAttribute("reason");
+      
+      // Copy all child nodes to the new span
+      while (e.firstChild) {
+        span.appendChild(e.firstChild);
+      }
+      
+      return span;
+    },
   }
 };
-
-document.addEventListener('DOMContentLoaded', function() {
-  const unclearElements = document.querySelectorAll('tei-unclear');
-  console.log("Found", unclearElements.length, "tei-unclear elements");
-  
-  unclearElements.forEach(function(el) {
-    // Apply tooltip directly to the tei-unclear element
-    el.classList.add('unclear');
-    el.title = 'unclear: ' + el.getAttribute('reason');
-  });
-});
 
 c.addBehaviors(behaviors);
 
