@@ -54,10 +54,15 @@
     /* Special styling for the "9" abbreviation mark */
     .abbreviation-mark:has-text("9") {
       font-weight: bold;
-}
+  }
     /* Hide the 'n' attribute if it's not present or if you want to control its display more precisely */
     tei-ab:not([n])::before {
       content: none;
+    }
+    .unclear {
+      background-color: #f0f0f0;
+      border-bottom: 1px dotted #999;
+      cursor: help;
     }
     .transcription-entry hr {
       margin-top: 2rem;
@@ -301,7 +306,6 @@ let behaviors = {
   
   insElement.setAttribute("title", tooltipText);
 
-  // *** THE CRITICAL FIX IS HERE ***
   // Move all the processed children (the actual text) from the original
   // <tei-add> element into our new <ins> element.
   while (e.firstChild) {
@@ -312,6 +316,29 @@ let behaviors = {
 },
   }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  // First approach: looking for <unclear> elements
+  const unclearElements = document.querySelectorAll('unclear');
+  console.log("Found", unclearElements.length, "unclear elements");
+  
+  unclearElements.forEach(function(el) {
+    const span = document.createElement('span');
+    span.className = 'unclear';
+    span.title = 'unclear: ' + el.getAttribute('reason');
+    span.innerHTML = el.innerHTML;
+    el.parentNode.replaceChild(span, el);
+  });
+  
+  // Second approach: looking for elements with a data-unclear attribute
+  const dataUnclearElements = document.querySelectorAll('[data-unclear]');
+  console.log("Found", dataUnclearElements.length, "data-unclear elements");
+  
+  dataUnclearElements.forEach(function(el) {
+    el.className += ' unclear';
+    el.title = 'unclear: ' + el.getAttribute('data-unclear');
+  });
+});
 
 c.addBehaviors(behaviors);
 
