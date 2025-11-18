@@ -318,25 +318,13 @@ let behaviors = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  // First approach: looking for <unclear> elements
-  const unclearElements = document.querySelectorAll('unclear');
-  console.log("Found", unclearElements.length, "unclear elements");
+  const unclearElements = document.querySelectorAll('tei-unclear');
+  console.log("Found", unclearElements.length, "tei-unclear elements");
   
   unclearElements.forEach(function(el) {
-    const span = document.createElement('span');
-    span.className = 'unclear';
-    span.title = 'unclear: ' + el.getAttribute('reason');
-    span.innerHTML = el.innerHTML;
-    el.parentNode.replaceChild(span, el);
-  });
-  
-  // Second approach: looking for elements with a data-unclear attribute
-  const dataUnclearElements = document.querySelectorAll('[data-unclear]');
-  console.log("Found", dataUnclearElements.length, "data-unclear elements");
-  
-  dataUnclearElements.forEach(function(el) {
-    el.className += ' unclear';
-    el.title = 'unclear: ' + el.getAttribute('data-unclear');
+    // Apply tooltip directly to the tei-unclear element
+    el.classList.add('unclear');
+    el.title = 'unclear: ' + el.getAttribute('reason');
   });
 });
 
