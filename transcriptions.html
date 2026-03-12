@@ -428,16 +428,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   if (requestedMs && msFiles[requestedMs]) {
     // Load single transcription
     loadTranscription(msFiles[requestedMs]);
-  } else {
-    // Load all transcriptions
-    loadTranscription('manuscripts/Bas_Cod_E_VI_26.xml');
-    loadTranscription('manuscripts/Fre_Hs_471.xml');
-    loadTranscription('manuscripts/Got_Chart_158.xml');
-    loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml');
-    loadTranscription('manuscripts/Hei_cpg_475.xml');
-    loadTranscription('manuscripts/Mue_Cgm_567.xml');
-    loadTranscription('manuscripts/Mue_Cgm_568.xml');
-    loadTranscription('manuscripts/StG_Cod_Sang_630.xml');
+  } else if (!requestedMs) {
+    // Load all transcriptions only if no specific MS is requested
+    Object.values(msFiles).forEach(file => loadTranscription(file));
   }
 });
 </script> 
