@@ -366,6 +366,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   
   // Mapping of URL parameters to file paths
   const msFiles = {
+    'Bas_Cod_E_VI_26': 'manuscripts/Bas_Cod_E_VI_26.xml',
     'Fre_Hs_471': 'manuscripts/Fre_Hs_471.xml',
     'Got_Chart_158': 'manuscripts/Got_Chart_158.xml',
     'Hei_Cod_Sal_IX_28': 'manuscripts/Hei_Cod_Sal_IX_28.xml',
@@ -429,6 +430,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     loadTranscription(msFiles[requestedMs]);
   } else {
     // Load all transcriptions
+    loadTranscription('manuscripts/Bas_Cod_E_VI_26.xml');
     loadTranscription('manuscripts/Fre_Hs_471.xml');
     loadTranscription('manuscripts/Got_Chart_158.xml');
     loadTranscription('manuscripts/Hei_Cod_Sal_IX_28.xml');
