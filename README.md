@@ -60,7 +60,7 @@ paper · 2nd half of the 15th cent.
 
 The transcriptions of the manuscripts can be found [here](https://github.com/wissen-ist-acht/konstanzer_jahrgeschichten/tree/main/manuscripts).
 A digital presentation, which accompanies this project, aims at making the transcriptions comparable: <https://wissen-ist-acht.github.io/Konstanzer_Jahrgeschichten/>.
-(It is still  a work in progress, but we plan to make all transcriptions available by the end of 2025.)
+(It is still  a work in progress, but we plan to make all transcriptions available by 2026.)
 To this end, the entries were (and will be) enriched with meta data, e.g. corrected date/reference date, concrete format of dating (roman numbers, latin numbers, or written out numbers), dating style when referring to a saint (in Latin or in German), asf. 
 This enables a comparison from different perspectives and for different users and purposes. 
 It also can serve as an example how to encode non-standardized texts to uncover similarities that would go unseen if a mere comparison of the plain text would be performed.
