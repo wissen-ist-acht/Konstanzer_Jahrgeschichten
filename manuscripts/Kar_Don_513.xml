@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Konstanzer Jahrgeschichten</title>
+                <respStmt>
+                    <resp>Encoded by</resp>
+                    <name ref="https://orcid.org/0000-0003-2419-4252" type="ORCID">[Ina Serif]</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <p>Digital edition</p>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <settlement>Karlsruhe</settlement>
+                        <repository>Badische Landesbibliothek</repository>
+                        <idno>Cod. Don. 513</idno>
+                    </msIdentifier>
+                    <physDesc>
+                        <p>Konstanzer Jahrgeschichten on folios 93r-93v</p>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="annals">
+                <pb n="93r"/>
+                <ab n="1200">
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> mcc jar bredigot bru<hi rend="sup">o</hi>der berchtolt zu<hi rend="sup">o</hi>m  <choice><abbr>erste<am>¯</am></abbr><expan>ersten</expan></choice> maull
+                </ab>
+                <ab n="1332">
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> mcccxxxii jar prima die marcÿ ward gemarttrot sanct<lb/>
+                    v<hi rend="sup">o</hi>lrich <choice><abbr>vo<am>¯</am></abbr><expan>von</expan></choice> den Juden ze vberlingen der was ains ledergerwers<lb/>
+                    sun der hies der frÿ
+                </ab>
+                <ab n="1258">
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> 1258 par perde gmarktad angiß ward die grosst<lb/>
+                    brunst ze costentz
+                </ab>
+                <ab n="1259">
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> 1259 par perde <choice><abbr>epur<am>¯</am>ad</abbr><expan>epurnad</expan></choice> <choice><abbr>fu<am>¯</am></abbr><expan>fuer</expan></choice> <choice><abbr>co<am>¯</am>ad</abbr><expan>cornad</expan></choice> do markt<lb/>
+                    altgem die burg steinme
+                </ab>
+                <ab>
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> <gap reason="illegible"/> par perde tanektad <choice><abbr>fu<am>¯</am></abbr><expan>fuer</expan></choice> paule do kam ain<lb/>
+                    <choice><abbr>ro<am>¯</am></abbr><expan>rose</expan></choice> bideme das vollach die statt obsigelt
+                </ab>
+                <ab>
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> <gap reason="illegible"/> par perde marcij do wurdent die <choice><abbr>jud<am>¯</am></abbr><expan>judden</expan></choice><lb/>
+                    ze costentz all <choice><abbr>vertrib<am>¯</am>t</abbr><expan>vertribent</expan></choice>
+                </ab>
+                <ab>
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> <gap reason="illegible"/> do stargend die <choice><abbr>grüssler</abbr><expan>grüssler</expan></choice>
+                </ab>
+                <ab>
+                    Anno <choice><abbr>dm<am>¯</am></abbr><expan>domini</expan></choice> <gap reason="illegible"/> par margela barcholomeÿ do jungsten die<lb/>
+                    iran costentz dasß gen jarolff der bischoff karl ze land <choice><abbr>u<am>¯</am>d</abbr><expan>und</expan></choice> der<lb/>
+                    <choice><abbr>herizog</abbr><expan>herzog</expan></choice> albrecht <choice><abbr>vo<am>¯</am></abbr><expan>von</expan></choice> östenrich dem kaiser
+                </ab>
+          </div>
+        </body>
+    </text>
+</TEI>
