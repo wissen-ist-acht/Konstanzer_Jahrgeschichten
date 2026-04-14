@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Konstanzer Jahrgeschichten</title>
+                <respStmt>
+                    <resp>Encoded by</resp>
+                    <name ref="https://orcid.org/0000-0003-2419-4252" type="ORCID">[Ina Serif]</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <p>Digital edition</p>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <settlement>Strasbourg</settlement>
+                        <repository>Bibliothèque nationale et universitaire</repository>
+                        <idno>ms. 5457</idno>
+                    </msIdentifier>
+                    <physDesc>
+                        <p>Konstanzer Jahrgeschichten on folios 186v-187r</p>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="annals">
+                <pb n="186v"/>
+                <ab n="1297">
+                    Anno m cc lx brediet <choice><abbr>bru<hi rend="sup">o</hi>d<am>'</am></abbr><expan>bru<hi rend="sup">o</hi>der<expan></choice> Bechtolt ze <choice><abbr>coste<am>¯</am>tz</abbr><expan>costentz</expan></choice>zu<hi rend="sup">o</hi> <choice><abbr>de<am>¯</am></abbr><expan>dem</expan></choice><lb/>
+                    ersten mal
+                </ab>
+                <ab n="">
+                    
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+        
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+                <ab n="">
+                    
+                </ab>
+          </div>
+        </body>
+    </text>
+</TEI>
